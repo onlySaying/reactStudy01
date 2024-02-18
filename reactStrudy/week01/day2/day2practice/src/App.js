@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
-import "./App.css"
+import { Button, Checkbox, FormControlLabel, List, ListItem, TextField } from "@mui/material";
+import { useState, useEffect } from "react";
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
+import './App.css'
 
 const InputItem = ({appendTodo}) => 
   {
     const[value, setValue] = useState("");
 
     const onchangeHandler = (e) =>
-    {
-        setValue(e.target.value)
-    }
+    {setValue(e.target.value)}
     const inputHandler = (e) =>
     {
       appendTodo(value);
@@ -16,28 +18,55 @@ const InputItem = ({appendTodo}) =>
     }
 
     return (
-      <div>
-        <input value={value} onChange={onchangeHandler}></input>
-        <button onClick={inputHandler}>입력</button>
+      <div class = "textcenter">
+        <TextField value={value} onChange={onchangeHandler} style={{marginRight : '20px'}}
+        TextField id="outlined-basic" label="input todo" variant="outlined"></TextField>
+        <Fab color="primary" aria-label="add" onClick={inputHandler}><AddIcon/></Fab>
       </div>    
       )
   }
 
 const Itemcomponent = ({item, exceptTodo, updateTodo}) => {
+
   let titleStyle = item.done ? "line-through" : "none";
   let isCheck = item.done ? "checked" : "";
+  const [editValue, setEditValue] = useState(item.title);
+  const [isModify, setIsModify] = useState(false);
+  
+  const onBoxchangeHandler = (e) =>  {updateTodo({no:item.no, title:item.title, done:!item.done});}
+  const onDelClickHandler = (e) =>{ exceptTodo(item.no);}
+ 
+  const onUpdateBTNHandler = (e) =>
+  {
+    setIsModify(!isModify);
+    if(isModify) 
+    {
+      updateTodo({no:item.no, title:editValue, done:item.done});
+    }
+  }
+
+  function modifyMode() {
+    let tag = <label style={{textDecoration: titleStyle, display:"inline-block", width:"170px"}}>{item.title}</label>;
+    if(isModify) {
+      tag = <input type='text' 
+      value={editValue} 
+      onChange={e=>{setEditValue(e.target.value)}} />;
+    } 
+    return tag;
+  }
 
   return(
     <div>
-      <li>
-        <input type='checkbox' checked={isCheck} onChange={e=>{
-        updateTodo({no:item.no, title:item.title, done:!item.done});
-      }}/>
-        <label style={{textDecoration: titleStyle}}>{item.title}</label>
-        <button onClick={() =>
-        { exceptTodo(item.no);}}>
-        삭제</button>
-        <button>수정</button>
+      <li class = "textcenter">
+        <input type='Checkbox' checked={isCheck} 
+        onChange={onBoxchangeHandler} style={{marginRight : 10, marginBottom : 10}}/>
+        {modifyMode()}
+        <svg data-testid="DeleteIcon"></svg>
+        <Button onClick={onDelClickHandler} style={{marginRight : 10, marginBottom : 10}}
+        color="error" variant="outlined"> 
+        삭제 </Button>
+        <Button onClick={onUpdateBTNHandler} style={{marginRight : 10, marginBottom : 10}}>
+          {isModify ? "확인" : "수정"}</Button>
       </li>
     </div>
   ) 
@@ -47,7 +76,8 @@ const ListComponent = ({todoList, exceptTodo , updateTodo}) => {
  
   return (<div>
     <ul>{todoList.map((item) => {
-      return (<Itemcomponent key={item.no} item={item} exceptTodo={exceptTodo} updateTodo={updateTodo} />);
+      return (<Itemcomponent key={item.no} item={item} 
+        exceptTodo={exceptTodo} updateTodo={updateTodo} />);
     })}</ul>
   </div>);
 }
@@ -56,13 +86,13 @@ const TodoList = () =>
 {
   const [value, setValue] = useState("dddd");
   const [todoList, setTodoList] = useState([
-    {no:1, title:"치맥 하기", done:false},
-    {no:2, title:"방 청소 하기", done:false},
-    {no:3, title:"명상 하기", done:true},
-    {no:4, title:"착한 일 하기", done:false}
+    {no:1, title:"서버 연결은 ", done:false},
+    {no:2, title:"못하겠어요.", done:false},
+    {no:3, title:"다음에 할게요 ㅠㅜ", done:false},
+    {no:4, title:"리액트 공부하기", done:true}
   ]);
   
-  const [cnt, setCnt] = useState(1);
+  const [cnt, setCnt] = useState(5);
 
   const appendTodo = (title) =>
   {
@@ -98,18 +128,18 @@ const TodoList = () =>
 
   return (
     <div>
-      <div className='App-header'>
+      <div className='jumbotron text-center bg-dark text-white'>
         <h1>Todo List</h1>
       </div>
       <main>
-        <h2>welcome</h2>
+        <h2>List입력</h2>
         <InputItem appendTodo={appendTodo} />
         <hr/>
         <ListComponent todoList={todoList} exceptTodo={exceptTodo} updateTodo={updateTodo} />
       </main>
       
       <footer>
-        (c)Comstudy21. since 2024.
+
       </footer>
     </div>
   )
