@@ -6,9 +6,7 @@ const InputItem = ({appendTodo}) =>
     const[value, setValue] = useState("");
 
     const onchangeHandler = (e) =>
-    {
-        setValue(e.target.value)
-    }
+    {setValue(e.target.value)}
     const inputHandler = (e) =>
     {
       appendTodo(value);
@@ -21,26 +19,24 @@ const InputItem = ({appendTodo}) =>
         <button onClick={inputHandler}>입력</button>
       </div>    
       )
-  }
+}
 
 const Itemcomponent = ({item, exceptTodo, updateTodo}) => {
+
   let titleStyle = item.done ? "line-through" : "none";
   let isCheck = item.done ? "checked" : "";
+  const [editValue, setEditValue] = useState(item.title);
+  const onBoxchangeHandler = (e) => {updateTodo({no:item.no, title:item.title, done:!item.done});}
+  const onDelClickHandler = (e) =>{ exceptTodo(item.no);}
+  const onUpdateBTNHandler = (e) => {updateTodo({no:item.no, title:editValue, done:item.done});}
 
-  return(
-    <div>
-      <li>
-        <input type='checkbox' checked={isCheck} onChange={e=>{
-        updateTodo({no:item.no, title:item.title, done:!item.done});
-      }}/>
-        <label style={{textDecoration: titleStyle}}>{item.title}</label>
-        <button onClick={() =>
-        { exceptTodo(item.no);}}>
-        삭제</button>
-        <button>수정</button>
-      </li>
-    </div>
-  ) 
+  return (<li>
+    <input type='checkbox' checked={isCheck} onChange={onBoxchangeHandler} />
+    <input style={{border:0, textDecoration:titleStyle}} type='text' 
+    value={editValue} 
+    onChange={e=>{setEditValue(e.target.value)}} onBlur={onUpdateBTNHandler} />
+    <button onClick={onDelClickHandler}>삭제</button>
+  </li>)
 }
 
 const ListComponent = ({todoList, exceptTodo , updateTodo}) => {
@@ -61,7 +57,7 @@ const TodoList = () =>
     {no:3, title:"공부 하기", done:true}
   ]);
   
-  const [cnt, setCnt] = useState(1);
+  const [cnt, setCnt] = useState(5);
 
   const appendTodo = (title) =>
   {
