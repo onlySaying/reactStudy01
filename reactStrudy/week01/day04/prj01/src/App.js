@@ -1,33 +1,24 @@
-import { List } from "@mui/material";
-import Todo from "./Todo";
+import { Button, Grid, TextField } from "@mui/material";
 import { useState } from "react";
-import AddTodo from "./AddTodo";
 
-function App() {
-  const[items, setItems] = useState([
-    {id : 0, title : "밥 먹기", done : false},
-    {id : 1, title : "잠 자기", done : false},
-    {id : 2, title : "공부 하기", done : false},
-    {id : 3, title : "약 먹기", done : true}
-  ]);
+const AddTodo = (props)=>{
+    const [item, setItem] = useState({title: ""});
 
-  let todoItems = items.map((item) =>{
-    // 중괄호 안에는 반드시 return 값이 있어야한다.
-    return <Todo item ={item} key ={item.id}/>
-  })
-  return (
-    <div>
-      <h1>Todo List Item</h1>
-      <AddTodo></AddTodo>
-      <List>
-        {
-          todoItems
-        }
-      </List>
-      
-      
-    </div>
-  );
+    const onInputChange = (e)=>{
+        setItem({title: e.target.value});
+        console.log(item);
+    }
+
+    return (<div>
+        <Grid container style={{marginTop:20}}>
+            <Grid xs={10} md={10} item style={{paddingRight:5}}>
+                <TextField onChange={onInputChange} placeholder="Add Todo here" fullWidth></TextField>
+            </Grid>
+            <Grid xs={2} md={2}>
+                <Button fullWidth style={{height: '100%'}} color="secondary" variant="outlined">+</Button>
+            </Grid>
+        </Grid>
+    </div>);
 }
 
-export default App;
+export default AddTodo;
