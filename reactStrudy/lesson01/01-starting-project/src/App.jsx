@@ -11,7 +11,6 @@ function App() {
   // hook 은 최상위 펑션에만 존재 가능하다.
   const [selectedTopic, setSelectedTopic] = useState();
   
-
   function handleSelect(selectedButton)
   {
     setSelectedTopic(selectedButton);
@@ -39,6 +38,10 @@ function App() {
         <section id = "core-concepts">
         <h2>Core Concept</h2>
         <ul>
+          {CORE_CONCEPTS.map((conceptItem) => (
+             <CoreConcept key ={conceptItem.title} {...conceptItem} />
+          ))}
+          {/*
           <CoreConcept title = "Components" 
           description ="The core ui building block."
           image = {componentsImg}/>
@@ -48,7 +51,7 @@ function App() {
           image = {CORE_CONCEPTS[1].image}/>
           <CoreConcept {...CORE_CONCEPTS[2]} />
           <CoreConcept {...CORE_CONCEPTS[3]} />
-
+        */}
         </ul>
         </section>
         <section id = "examples">
