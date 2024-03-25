@@ -38,8 +38,6 @@ export default function Results({userInput})
                             <td>{formatter.format
                             (totalInterest)}</td>
                             <td>{formatter.format
-                            (initialInvestment)}</td>
-                            <td>{formatter.format
                             (totalAmountInvestment)}</td>
 
                         </tr>
