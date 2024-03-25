@@ -1,0 +1,32 @@
+.btn-container {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+  
+  }
+  .btn-container button {
+    margin-left: 10px; /* 버튼 사이에 10px 여백 추가 */
+    float: right;
+    margin-left: 20px;
+  }
+
+  .contextS
+  {
+    float : left;
+  }
+  .contextS {
+    display: flex;
+  }
+  
+  .imgBox {
+    /* 이미지 크기 조절 */
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+  }
+  
+  .nemeContext {
+    /* 텍스트 정렬 */
+    align-self: center;
+    margin-left: 10px; /* 이미지와 텍스트 간 여백 */
+  }
