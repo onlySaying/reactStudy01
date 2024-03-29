@@ -1,0 +1,26 @@
+.ListAlign {
+    float: right;
+    position: absolute;
+    top: 0;
+    left: 70%;
+    margin-left: 0px;
+  }
+
+.buttons
+{
+  margin-top: 20px;
+  margin-left: 0px;
+}
+
+.listColors
+{
+  background-color: gray;
+}
+
+.bgc
+{
+  margin-top: 0;
+  background-color: blanchedalmond;
+  width: 200px;
+  height: 60px;
+}

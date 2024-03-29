@@ -1,5 +1,5 @@
 
-export const studentList = [
+const studentList = [
     {id : 1, name: "홍길동", school:"금오공과대학교"},
     {id : 5, name: "김길동", school:"경북대학교"},
     {id : 7, name: "박길동", school:"경북대학교"},
@@ -12,7 +12,7 @@ export const studentList = [
     {id : 23, name: "황길동", school:"영남대학교"},
 ]
 
-export const studentDetail = {
+const studentDetail = {
     id : 5,
     name : "김길동",
     school : "경북대학교",
@@ -30,7 +30,9 @@ export const studentDetail = {
     ]
 }
 
-export const schoolList = [
+
+
+const schoolList = [
     {id:1, name:"금오공과대학교"},
     {id:2, name:"경북대학교"},
     {id:3, name:"계명대학교"},

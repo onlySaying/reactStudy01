@@ -1,5 +1,14 @@
+.classAlign{
+    width: 65%;
+    justify-content: flex-start;
+}
+.unlists
+{
+    float : left;
+    display: flex;
+}
+
 .btn-container {
-    width: 70%;
     display: flex;
     justify-content: flex-end;
   
@@ -13,20 +22,26 @@
   .contextS
   {
     float : left;
-  }
-  .contextS {
     display: flex;
   }
   
   .imgBox {
     /* 이미지 크기 조절 */
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: aqua;
+    margin-right: 10px;
   }
   
   .nemeContext {
     /* 텍스트 정렬 */
     align-self: center;
     margin-left: 10px; /* 이미지와 텍스트 간 여백 */
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .bottomMargin
+  {
+    margin-bottom: 10px;
   }

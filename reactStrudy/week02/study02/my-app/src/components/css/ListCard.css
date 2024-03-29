@@ -1,0 +1,19 @@
+.listcard-container{
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.image-container{
+    background-color: #dbdbdb;
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+}
+
+.student-container{
+    width: 150px;
+}

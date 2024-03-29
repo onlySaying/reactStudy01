@@ -1,0 +1,38 @@
+.student-detail{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.header .image{
+    width: 200px;
+    height: 200px;
+    background-color: #dbdbdb;
+    border-radius: 10px;
+}
+
+.header .info{
+    width: 400px;
+}
+
+.info-row{
+    display: flex;
+}
+
+.info-row h2{
+    width: 150px;
+}
+
+.body{
+    background-color: #ffffff;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+}

@@ -1,0 +1,53 @@
+
+.container {
+    /*background-color: red;*/
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 100vh;
+}
+.detail-container{
+    background-color: #dbdbdb;
+    padding: 10px;
+}
+.list-container{
+    background-color: #dbdbdb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+    padding: 20px 0 20px 0;
+    overflow: scroll;
+}
+
+.btn-container{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: right;
+    gap:10px;
+}
+
+.btn-container .btn{
+    width: 50px;
+    height: 30px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-container .btn:hover{
+    opacity: 0.5;
+}
+
+.btn-container .btn-remove{
+    background-color: red;
+}
+
+.btn-container .btn-update{
+    background-color: blue;
+}
+
+.btn-container .btn-add{
+    background-color: green;
+}

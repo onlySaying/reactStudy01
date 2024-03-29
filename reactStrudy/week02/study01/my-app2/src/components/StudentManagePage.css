@@ -1,0 +1,13 @@
+.container{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 100vh;
+}
+
+.detail-container{
+    background-color: red;
+}
+.list-container
+{
+    background-color: blue;
+}
