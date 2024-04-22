@@ -2,7 +2,6 @@ import BuyingPrinting from "./components/BuyingPrinting";
 
 function App() {
 
-
   return (
     <div>
       <BuyingPrinting/>
