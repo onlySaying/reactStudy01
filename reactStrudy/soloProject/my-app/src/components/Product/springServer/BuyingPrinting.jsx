@@ -12,7 +12,7 @@ const BuyingPrinting = () => {
         try {
             const response = await fetch('http://localhost:8080/buying');
             if (!response.ok) {
-                throw new Error('Failed to fetch data');
+                throw new Error('Failed to fetch data'); 
             }
             const jsonData = await response.json();
             setData(jsonData);

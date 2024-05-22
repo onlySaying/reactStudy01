@@ -1,0 +1,48 @@
+.order-detail {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+header h1 {
+  text-align: center;
+}
+
+.order-info {
+  margin: 20px 0;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.additional-charges, .total-amount, .order-time {
+  margin-top: 10px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-order {
+  background-color: #f44336;
+  color: white;
+}
+
+.add-same-menu {
+  background-color: #4CAF50;
+  color: white;
+}
