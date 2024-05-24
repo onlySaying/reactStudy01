@@ -47,13 +47,17 @@ const KakaoMap = () => {
                 position: coords,
               });
 
+              const content = `<div>
+                                ${store.storePhotoUrl ? `<img src="${store.storePhotoUrl}" alt="${store.storeName}" style="max-width:200px; max-height:400px;"/>` : ''}
+                                <h3>${store.storeName}</h3>
+                                <p>가게 번호 : ${store.phoneNumber}</p>
+                                <p>운영 시간 : ${store.pickupTime}</p>
+                                ${store.storePhotoUrl ? `` : `<div style="margin-bottom: 40px;"></div>`}
+                                <!-- 여백 추가 -->
+                               </div>`;
+
               const infowindow = new window.kakao.maps.InfoWindow({
-                content: `<div>
-                            <img src="${store.storePhotoUrl}" alt="${store.storeName}" style="max-width:200px; max-height:200px;"/>
-                            <h3>${store.storeName}</h3>
-                            <p>${store.phoneNumber}</p>
-                            <p>${store.pickupTime}</p>
-                          </div>`,
+                content: content,
               });
 
               newInfoWindows[store.storeId] = infowindow;

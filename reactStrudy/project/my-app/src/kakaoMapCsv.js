@@ -73,7 +73,7 @@ const KakaoMapCsv = () => {
             }
 
             // Process the next store after a short delay
-            setTimeout(() => processStores(index + 1), 300); // 300ms delay between each geocoding request
+            setTimeout(() => processStores(index + 1)); // 300ms delay between each geocoding request
           });
         };
 
